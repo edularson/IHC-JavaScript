@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JavaScript</title>
+</head>
+
+<body>
+
+    <!-- ex1-->
+    <form id="maior">
+        <h2>Digite 2 números para verificar qual é o maior</h2>
+        <label for="numero1-maior">Número 1:</label>
+        <input type="number" id="numero1-maior" name="numero1"><br><br>
+
+        <label for="numero2-maior">Número 2:</label>
+        <input type="number" id="numero2-maior" name="numero2"><br><br>
+
+        <button type="button" onclick="compararNumerosMaior()">Comparar</button>
+    </form>
+
+    <p id="resultado-maior"></p>
+
+    <!-- ex2 -->
+    <form id="menor">
+        <h2>Digite 2 números para verificar qual é o menor</h2>
+        <label for="numero1-menor">Número 1:</label>
+        <input type="number" id="numero1-menor" name="numero1"><br><br>
+
+        <label for="numero2-menor">Número 2:</label>
+        <input type="number" id="numero2-menor" name="numero2"><br><br>
+
+        <button type="button" onclick="compararNumerosMenor()">Comparar</button>
+    </form>
+
+    <p id="resultado-menor"></p>
+
+    <!-- ex3 -->
+    <form id="notas">
+        <h2>Verificar Notas</h2>
+        <label for="nota">Nota:</label>
+        <input type="number" id="nota" name="nota"><br><br>
+
+        <button type="button" onclick="verificarNotas()">Verificar</button>
+    </form>
+
+    <!-- ex4 -->
+    <form id="media-vetor">
+        <h2>Vetor: [1, 2, 3, 4]</h2>
+        <button type="button" onclick="mediaVetor()">Calcular a Média</button>
+    </form>
+
+    <p id="resultado-media-vetor"></p>
+
+    <!-- ex5 -->
+    <form id="variaveis">
+        <h2>Digite uma letra:</h2>
+        <label for="letra">Letra:</label>
+        <input type="text" id="letra" name="letra"><br><br>
+        <button type="button" onclick="verificarLetra()">Verificar:</button>
+    </form>
+
+    <!-- ex6 -->
+    <form id="soma-matriz">
+        <h2>Matriz: [[1, 2], [3, 4]]</h2>
+        <button type="button" onclick="somaMatriz()">Calcular a Soma:</button>
+    </form>
+
+    <p id="resultado-soma-matriz"></p>
+
+    <!-- ex7 -->
+    <form id="fatorial">
+        <h2>Digite um número para calcular o seu FATORIAL</h2>
+        <label for="numero-fatorial">Número:</label>
+        <input type="number" id="numero-fatorial" name="fatorial"><br><br>
+        <button type="button" onclick="calcularFatorial()">Calcular</button>
+    </form>
+
+    <p id="resultado-fatorial"></p>
+
+    <!-- ex8 -->
+    <form id="opcoes">
+        <h2>Menu de opções:</h2>
+        <h2>1. Opção 1</h2>
+        <h2>2. Opção 2</h2>
+        <h2>3. Opção 3</h2><br><br>
+        <label for="opcao-selecionada">Número:</label>
+        <input type="number" id="opcao-selecionada" name="opcoes"><br><br>
+        <button type="button" onclick="escolheOpcoes()">Digite a sua Opção</button>
+    </form>
+
+    <p id="resultado-opcoes"></p>
+
+    <!-- ex9 -->
+    <form id="maior-vetor">
+        <h2>Vetor: [1, 3, 7, 5]</h2>
+        <button type="button" onclick="maiorValor()">Verificar maior valor:</button>
+    </form>
+
+    <p id="resultado-maior-vetor"></p>
+
+    <!-- ex10 -->
+    <form id="media-matriz">
+        <h2>Matriz: [[1, 2], [3, 4]]</h2>
+        <button type="button" onclick="mediaMatriz()">Calcular a Média</button>
+    </form>
+
+    <p id="resultado-media-matriz"></p>
+
+    <script>
+        // Funções para comparar números
+        function compararNumerosMaior() {
+            const numero1 = parseFloat(document.getElementById("numero1-maior").value);
+            const numero2 = parseFloat(document.getElementById("numero2-maior").value);
+            const maior = (numero1 > numero2) ? numero1 : numero2;
+            document.getElementById("resultado-maior").textContent = "O maior número é: " + maior;
+            alert("O maior número é: " + maior);
+        }
+
+        function compararNumerosMenor() {
+            const numero1 = parseFloat(document.getElementById("numero1-menor").value);
+            const numero2 = parseFloat(document.getElementById("numero2-menor").value);
+            const menor = (numero1 < numero2) ? numero1 : numero2;
+            document.getElementById("resultado-menor").textContent = "O menor número é: " + menor;
+            alert("O menor número é: " + menor);
+        }
+
+        // Função para verificar notas
+        function verificarNotas() {
+            const nota = parseFloat(document.getElementById("nota").value);
+            if (nota < 6) {
+                alert("Reprovado: " + nota);
+            } else if (nota >= 6 && nota < 8) {
+                alert("Aprovado: " + nota);
+            } else {
+                alert("Aprovado com louvor: " + nota);
+            }
+        }
+
+        // Função para calcular a média de um vetor
+        function mediaVetor() {
+            var media = [1, 2, 3, 4];
+            var valor = 0;
+            for (var i = 0; i < media.length; i++) {
+                valor += media[i];
+            }
+            var mediaFinal = valor / media.length;
+            document.getElementById('resultado-media-vetor').textContent = "A média é: " + mediaFinal;
+            alert("Média do vetor é: " + mediaFinal);
+        }
+
+        // Função para verificar letras
+        function verificarLetra() {
+            const letra = document.getElementById("letra").value;
+            if (letra == 'a' || letra == 'A') {
+                alert("Letra A");
+            } else if (letra == 'b' || letra == 'B') {
+                alert("Letra B");
+            } else {
+                alert("Digite outra letra!");
+            }
+        }
+
+        // Função para calcular a soma de uma matriz
+        function somaMatriz() {
+            var matriz = [[1, 2], [3, 4]];
+            var valor = 0;
+            for (var i = 0; i < matriz.length; i++) {
+                for (var j = 0; j < matriz[i].length; j++) {
+                    valor += matriz[i][j];
+                }
+            }
+            document.getElementById('resultado-soma-matriz').textContent = "A soma da matriz é: " + valor;
+            alert("Soma da Matriz é: " + valor);
+        }
+
+        // Função para calcular o fatorial
+        function calcularFatorial() {
+            var fatorial = parseInt(document.getElementById("numero-fatorial").value);
+            var num = fatorial;
+            var valor = 1;
+            for (var i = fatorial; i > 0; i--) {
+                valor *= i;
+            }
+            document.getElementById('resultado-fatorial').textContent = "O fatorial de " + num + " é: " + valor;
+            alert("O fatorial de " + num + " é: " + valor);
+        }
+
+        // Função para escolher opções
+        function escolheOpcoes() {
+            let opcao = parseInt(document.getElementById("opcao-selecionada").value);
+            let resultado;
+            switch (opcao) {
+                case 1:
+                    resultado = "Você escolheu a Opção 1.";
+                    break;
+                case 2:
+                    resultado = "Você escolheu a Opção 2.";
+                    break;
+                case 3:
+                    resultado = "Você escolheu a Opção 3.";
+                    break;
+                default:
+                    resultado = "Opção inválida. Por favor, escolha 1, 2 ou 3.";
+            }
+            document.getElementById("resultado-opcoes").textContent = resultado;
+            alert(resultado);
+        }
+
+        // Função para verificar maior valor do vetor
+        function maiorValor() {
+            var vetor = [1, 3, 7, 5];
+            var maior = vetor[0];
+            for (var i = 1; i < vetor.length; i++) {
+                if (vetor[i] > maior) {
+                    maior = vetor[i];
+                }
+            }
+            document.getElementById('resultado-maior-vetor').textContent = "O maior valor do vetor é: " + maior;
+            alert("Maior valor do vetor é: " + maior);
+        }
+
+        // Função para calcular a média de uma matriz
+        function mediaMatriz() {
+            var matriz = [[1, 2], [3, 4]];
+            var soma = 0;
+            var totalElementos = 0;
+            for (var i = 0; i < matriz.length; i++) {
+                for (var j = 0; j < matriz[i].length; j++) {
+                    soma += matriz[i][j];
+                    totalElementos++;
+                }
+            }
+            var media = soma / totalElementos;
+            document.getElementById('resultado-media-matriz').textContent = "A média da matriz é: " + media;
+            alert("Média da Matriz é: " + media);
+        }
+    </script>
+
+</body>
+
+</html>
